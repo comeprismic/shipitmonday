@@ -31,7 +31,7 @@ const Header: React.FC<HeaderProps> = ({ logoSrc, text1, text2 }) => {
         .headercontainer {
     
         display: flex;
-        width: 600px;
+        width: auto;
         margin: auto;
         align-items : center; 
         justify-content: space-between;

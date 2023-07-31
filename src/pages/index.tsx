@@ -22,7 +22,7 @@ export default function Index({ page }: PageProps) {
       <Head>
         <title>{prismic.asText(page.data.title)}</title>
       </Head>
-      <Header logoSrc="/vercel.svg" text1="Home" text2="About"/>
+      <Header logoSrc="/logo.png" text1="Home" text2="About" />
       <SliceZone slices={page.data.slices} components={components} />
     </main>
   );
