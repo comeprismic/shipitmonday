@@ -25,7 +25,7 @@ const Header: React.FC<HeaderProps> = ({ logoSrc, text1, text2 }) => {
           display: flex;
           align-items: center;
           padding: 1rem;
-          background-color: #f0f0f0;
+          background-color: #ffffff;
         }
 
         .headercontainer {
