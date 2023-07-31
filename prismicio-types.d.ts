@@ -2,10 +2,13 @@
 
 import type * as prismic from "@prismicio/client";
 
-type Simplify<T> = {
-  [KeyType in keyof T]: T[KeyType];
-};
-/** Content for Page documents */
+type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
+
+type PageDocumentDataSlicesSlice = RichTextSlice;
+
+/**
+ * Content for Page documents
+ */
 interface PageDocumentData {
   /**
    * Title field in *Page*
@@ -14,10 +17,10 @@ interface PageDocumentData {
    * - **Placeholder**: *None*
    * - **API ID Path**: page.title
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-   *
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   title: prismic.TitleField;
+
   /**
    * Slice Zone field in *Page*
    *
@@ -25,74 +28,70 @@ interface PageDocumentData {
    * - **Placeholder**: *None*
    * - **API ID Path**: page.slices[]
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/core-concepts/slices
-   *
+   * - **Documentation**: https://prismic.io/docs/field#slices
    */
   slices: prismic.SliceZone<PageDocumentDataSlicesSlice>;
 }
-/**
- * Slice for *Page → Slice Zone*
- *
- */
-type PageDocumentDataSlicesSlice = RichTextSlice;
+
 /**
  * Page document from Prismic
  *
  * - **API ID**: `page`
  * - **Repeatable**: `true`
- * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ * - **Documentation**: https://prismic.io/docs/custom-types
  *
  * @typeParam Lang - Language API ID of the document.
  */
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
+
 export type AllDocumentTypes = PageDocument;
+
 /**
- * Primary content in RichText → Primary
- *
+ * Primary content in *RichText → Primary*
  */
-interface RichTextSliceDefaultPrimary {
+export interface RichTextSliceDefaultPrimary {
   /**
    * Content field in *RichText → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: Lorem ipsum...
    * - **API ID Path**: rich_text.primary.content
-   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-   *
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   content: prismic.RichTextField;
 }
+
 /**
  * Default variation for RichText Slice
  *
  * - **API ID**: `default`
- * - **Description**: `RichText`
- * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
- *
+ * - **Description**: RichText
+ * - **Documentation**: https://prismic.io/docs/slice
  */
 export type RichTextSliceDefault = prismic.SharedSliceVariation<
   "default",
   Simplify<RichTextSliceDefaultPrimary>,
   never
 >;
+
 /**
  * Slice variation for *RichText*
- *
  */
 type RichTextSliceVariation = RichTextSliceDefault;
+
 /**
  * RichText Shared Slice
  *
  * - **API ID**: `rich_text`
- * - **Description**: `RichText`
- * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
- *
+ * - **Description**: RichText
+ * - **Documentation**: https://prismic.io/docs/slice
  */
 export type RichTextSlice = prismic.SharedSlice<
   "rich_text",
   RichTextSliceVariation
 >;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -100,16 +99,16 @@ declare module "@prismicio/client" {
       options?: prismic.ClientConfig
     ): prismic.Client<AllDocumentTypes>;
   }
+
   namespace Content {
     export type {
+      PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
-      PageDocument,
       AllDocumentTypes,
-      RichTextSliceDefaultPrimary,
-      RichTextSliceDefault,
-      RichTextSliceVariation,
       RichTextSlice,
+      RichTextSliceVariation,
+      RichTextSliceDefault,
     };
   }
 }
