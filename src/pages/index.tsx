@@ -22,7 +22,7 @@ export default function Index({ page }: PageProps) {
       <Head>
         <title>{prismic.asText(page.data.title)}</title>
       </Head>
-      <Header logoSrc="/logo.png" text1="Home" text2="About" />
+      <Header logoSrc="/logo.png" text1="This text is hardcoded" text2="todo : connect Prismic" />
       <SliceZone slices={page.data.slices} components={components} />
     </main>
   );

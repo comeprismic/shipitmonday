@@ -12,11 +12,11 @@ const Header: React.FC<HeaderProps> = ({ logoSrc, text1, text2 }) => {
     return (
         <header>
             <div className="headercontainer">
-                <Link href="/">{text1} </Link>
+                <p className="headertext"> {text1}</p>
                 <div className="logo">
                     <Image src={logoSrc} alt='logo' fill />
                 </div>
-                <Link href="/about">{text2}</Link>
+                <p className="headertext">{text2}</p>
             </div>
 
             <style jsx>{`
@@ -24,38 +24,33 @@ const Header: React.FC<HeaderProps> = ({ logoSrc, text1, text2 }) => {
         header {
           display: flex;
           align-items: center;
-          padding: 1rem;
-          background-color: #f0f0f0;
+          padding-top: 48px;
         }
 
         .headercontainer {
-    
-        display: flex;
-        width: auto;
-        margin: auto;
-        align-items : center; 
-        justify-content: space-between;
+            display: flex;
+            width: 610px;
+            margin: auto;
+            align-items : center; 
+            justify-content: space-between;
         
 
         }
 
         .logo {
-          flex: 1;
-          width: 64px;
-          height: 64px;
+          width: 164px;
+          height: 120px;
           position: relative;
         }
 
-        nav ul {
-          list-style: none;
-          display: flex;
-        }
-        nav li {
-          margin-left: 1rem;
-        }
-        nav a {
-          color: #333;
-          text-decoration: none;
+        .headertext {
+            color: black;
+            font-family: nanum pen;
+            font-size: 24px;
+            position: relative;
+
+          }
+
         }
       `}</style>
         </header>

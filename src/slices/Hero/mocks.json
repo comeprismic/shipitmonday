@@ -1,0 +1,19 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"small_text": {
+				"__TYPE__": "FieldContent",
+				"value": "build",
+				"type": "Text"
+			},
+			"main_text": {
+				"__TYPE__": "FieldContent",
+				"value": "diameter",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]
