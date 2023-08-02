@@ -21,7 +21,7 @@ export default function Index({ page }: PageProps) {
       <Head>
         <title>{prismic.asText(page.data.title)}</title>
       </Head>
-      <Header logoSrc="/logo.png" text1="Home" text2="About" />
+      <Header logoSrc="/logo.png" text1="still hardcoded text" text2="update it soon" />
       <div className="topcontainer">
         <div className="datacontainer">
           <h3>{page.data.date}</h3>
