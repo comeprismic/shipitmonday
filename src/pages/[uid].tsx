@@ -6,6 +6,8 @@ import { SliceZone } from "@prismicio/react";
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
 import Header from "@/components/header";
+import { PrismicNextImage } from '@prismicio/next';
+import { PrismicNextLink } from '@prismicio/next'
 
 type PageProps = InferGetStaticPropsType<typeof getStaticProps>;
 type PageParams = { uid: string };
@@ -20,8 +22,60 @@ export default function Index({ page }: PageProps) {
         <title>{prismic.asText(page.data.title)}</title>
       </Head>
       <Header logoSrc="/logo.png" text1="Home" text2="About" />
+      <div className="topcontainer">
+        <div className="datacontainer">
+          <h3>{page.data.date}</h3>
+          <h1>House is on fire</h1>
+          <p>By <PrismicNextLink field={page.data.author}>Link</PrismicNextLink></p>
+        </div>
+        <PrismicNextImage className="blogimage" field={page.data.image} />
+      </div>
+
       <SliceZone slices={page.data.slices} components={components} />
-    </main>
+      <style jsx>{`
+        
+        
+        .topcontainer {
+          display: flex;
+          flex-direction:column;
+          align-items: center;
+          padding-top: 48px;
+          margin-bottom:120px
+        }
+       
+        .datacontainer {
+          display: flex;
+          flex-direction:column;
+          align-items: center;
+          padding-top: 48px;
+          margin-bottom:72px
+        }
+
+        h3 {
+          font-size:32px;
+          font-family:Satoshi;
+          color:black;
+          margin-bottom:24px
+        }
+
+        h1 {
+          font-size: 82px;
+          font-family: RationalDisplay-Bold;
+          color:black;
+          text-transform: uppercase;
+          margin-bottom:24px
+        }
+
+        .blogimage {
+          border-color:black;
+          border-radius:16px;
+        }
+      `}</style>
+
+
+    </main >
+
+
   );
 }
 
