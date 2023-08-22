@@ -6,6 +6,7 @@ import { SliceZone } from "@prismicio/react";
 import { createClient } from "@/prismicio";
 import { components } from "@/slices/";
 import Header from "@/components/header";
+import BlogpostCard from "@/components/blogpostcard";
 
 type PageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -23,6 +24,7 @@ export default function Index({ page }: PageProps) {
         <title>{prismic.asText(page.data.title)}</title>
       </Head>
       <Header logoSrc="/logo.png" text1="This text is hardcoded" text2="todo : connect Prismic" />
+      <BlogpostCard></BlogpostCard>
       <SliceZone slices={page.data.slices} components={components} />
     </main>
   );
