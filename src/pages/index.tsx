@@ -21,7 +21,12 @@ export default function Index({ page }: PageProps) {
         <title>{prismic.asText(page.data.title)}</title>
       </Head>
       <Header logoSrc="/logo.png" text1="This text is hardcoded" text2="todo : connect Prismic" />
-
+      <div className="topcontainer">
+        <div className="datacontainer">
+          <h3>Fresh news from your favorite teams </h3>
+          <h1>every monday</h1>
+        </div>
+      </div>
       <div className="cardscontainer">
         <section className="cards">
           <BlogpostCard></BlogpostCard>
@@ -37,7 +42,45 @@ export default function Index({ page }: PageProps) {
 
       <style jsx>{`
         
-        
+        .topcontainer {
+          display: flex;
+          flex-direction:column;
+          align-items: center;
+          padding-top: 48px;
+          margin-bottom:120px
+        }
+       
+        .datacontainer {
+          display: flex;
+          flex-direction:column;
+          align-items: center;
+          padding-top: 48px;
+          margin-bottom:72px
+        }
+
+        h3 {
+          color: #000;
+          text-align: center;
+          font-family: Rational Display;
+          font-size: 33px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+          text-transform: uppercase;
+        }
+
+        h1 {
+          Copy
+          color: #000;
+          font-family: Rational Display;
+          font-size: 112px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+          text-transform: uppercase;
+        }
+
+
         .cardscontainer {
           display: flex;
           justify-content: center;
