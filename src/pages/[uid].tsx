@@ -28,7 +28,9 @@ export default function Index({ page }: PageProps) {
           <h1>House is on fire</h1>
           <p>By <PrismicNextLink field={page.data.author}>Link</PrismicNextLink></p>
         </div>
-        <PrismicNextImage className="blogimage" field={page.data.image} />
+        <div className="imagecontainer">
+          <PrismicNextImage className="blogimage" field={page.data.image} />
+        </div>
       </div>
 
       <SliceZone slices={page.data.slices} components={components} />
@@ -66,8 +68,15 @@ export default function Index({ page }: PageProps) {
           margin-bottom:24px
         }
 
+        .imagecontainer {
+          border-radius: 4px;
+          border: 4px solid #000;
+        }
+        
+        
         .blogimage {
           border-color:black;
+          border:4px;
           border-radius:16px;
         }
       `}</style>
