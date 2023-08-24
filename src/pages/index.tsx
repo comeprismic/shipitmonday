@@ -1,10 +1,7 @@
 import type { InferGetStaticPropsType, GetStaticPropsContext } from "next";
 import Head from "next/head";
 import * as prismic from "@prismicio/client";
-import { SliceZone } from "@prismicio/react";
-
 import { createClient } from "@/prismicio";
-import { components } from "@/slices/";
 import Header from "@/components/header";
 import BlogpostCard from "@/components/blogpostcard";
 
@@ -24,8 +21,38 @@ export default function Index({ page }: PageProps) {
         <title>{prismic.asText(page.data.title)}</title>
       </Head>
       <Header logoSrc="/logo.png" text1="This text is hardcoded" text2="todo : connect Prismic" />
-      <BlogpostCard></BlogpostCard>
-      <SliceZone slices={page.data.slices} components={components} />
+
+      <div className="cardscontainer">
+        <section className="cards">
+          <BlogpostCard></BlogpostCard>
+          <BlogpostCard></BlogpostCard>
+          <BlogpostCard></BlogpostCard>
+          <BlogpostCard></BlogpostCard>
+          <BlogpostCard></BlogpostCard>
+          <BlogpostCard></BlogpostCard>
+          <BlogpostCard></BlogpostCard>
+          <BlogpostCard></BlogpostCard>
+        </section>
+      </div>
+
+      <style jsx>{`
+        
+        
+        .cardscontainer {
+          display: flex;
+          justify-content: center;
+        }
+        
+        .cards {
+          display: grid;
+          grid-template-columns: repeat(2,600px);
+          grid-auto-rows: 800px;
+          grid-row-gap: 124px;
+          grid-column-gap: 124px;
+        }
+      
+
+      `}</style>
     </main>
   );
 }

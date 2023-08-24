@@ -32,42 +32,44 @@ const BlogpostCard = () => {
           align-items: flex-start;
         }
         .blogImage {
-          width: 400px;
-          height: 300px;
+          width: auto;
+          height: auto;
           margin-bottom: 24px;
           border: 4px solid rgba(0, 0, 0, 1);
           border-radius: 4px;
         }
         .title {
-          max-width: 400px;
-          font-family: "Rational Display";
-          font-size: 32px;
-          font-weight: 700;
-          line-height: normal;
-          color: rgba(0, 0, 0, 1);
-          text-transform: uppercase;
-          margin-bottom: 16px;
+            color: #000;
+            font-family: Rational Display;
+            font-size: 64px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            align-self: stretch;
+
         }
         .description {
-          max-width: 400px;
-          font-family: "Satoshi";
-          font-size: 16px;
-          font-weight: 700;
-          line-height: 58px;
-          color: rgba(0, 0, 0, 1);
-          margin-bottom: 16px;
+            color: #000;
+            font-family: Satoshi;
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 58px;
+            margin-bottom: 16px;
         }
         .author {
           text-align: center;
           font-family: "Satoshi";
-          font-size: 16px;
+          font-size: 32px;
           font-weight: 700;
           line-height: normal;
           color: rgba(77, 150, 132, 1);
         }
         .authorEmphasis0 {
           font-family: "Satoshi";
-          font-size: 16px;
+          font-size: 32px;
           font-weight: 700;
           line-height: normal;
           color: rgba(0, 0, 0, 1);

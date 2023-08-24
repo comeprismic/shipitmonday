@@ -4,6 +4,7 @@ import { PrismicPreview } from "@prismicio/next";
 import { repositoryName } from "@/prismicio";
 import localFont from 'next/font/local';
 import clsx from 'clsx';
+import '../../public/reset.css'; // Import the reset CSS file
 
 const RationalDisplay = localFont({ src: './RationalDisplay-Bold.otf' })
 const Satoshi = localFont({ src: './Satoshi-Bold.otf' })
