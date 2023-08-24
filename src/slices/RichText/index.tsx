@@ -15,6 +15,20 @@ const components: JSXMapSerializer = {
   paragraph: ({ node, children }) => {
     return <p className={styles.paragraph}>{children}</p>;
   },
+
+  heading1: ({ node, children }) => {
+    return <p className={styles.heading1}>{children}</p>;
+  },
+
+  heading2: ({ node, children }) => {
+    return <p className={styles.heading2}>{children}</p>;
+  },
+
+  heading3: ({ node, children }) => {
+    return <p className={styles.heading3}>{children}</p>;
+  },
+
+
 };
 
 type RichTextProps = SliceComponentProps<Content.RichTextSlice>;

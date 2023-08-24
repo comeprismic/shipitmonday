@@ -42,7 +42,7 @@ export default function Index({ page }: PageProps) {
           flex-direction:column;
           align-items: center;
           padding-top: 48px;
-          margin-bottom:120px
+          margin-bottom:96px
         }
        
         .datacontainer {
