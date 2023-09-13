@@ -39,3 +39,32 @@
   font-weight: 900;
   line-height: 40px;
 }
+
+.strong {
+color: #000;
+font-family: 'Satoshi';
+font-weight: 900;
+
+}
+
+.em {
+  color: #000;
+  font-style: italic;
+
+}
+
+
+.hyperlink {
+color: #4D9684;
+font-family: 'Satoshi';
+text-decoration-line: underline;
+font-weight: 700;
+text-transform: capitalize;
+
+}
+
+
+
+
+
+

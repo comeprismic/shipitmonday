@@ -5,6 +5,7 @@ import {
   JSXMapSerializer,
 } from "@prismicio/react";
 import styles from "./index.module.css";
+import { ApiError } from "next/dist/server/api-utils";
 
 const components: JSXMapSerializer = {
   label: ({ node, children }) => {
@@ -17,16 +18,32 @@ const components: JSXMapSerializer = {
   },
 
   heading1: ({ node, children }) => {
-    return <p className={styles.heading1}>{children}</p>;
+    return <h1 className={styles.heading1}>{children}</h1>;
   },
 
   heading2: ({ node, children }) => {
-    return <p className={styles.heading2}>{children}</p>;
+    return <h2 className={styles.heading2}>{children}</h2>;
   },
 
   heading3: ({ node, children }) => {
-    return <p className={styles.heading3}>{children}</p>;
+    return <h3 className={styles.heading3}>{children}</h3>;
   },
+
+  hyperlink:({node, children})=>{
+    // @ts-ignore
+    const target = node.data.target ? `${node.data.target}` : '';
+    const url = node.data.url;
+    return (<a className={styles.hyperlink} href={url} target={target}>{children}</a>)
+  },
+
+  strong: ({ node, children }) => {
+    return <b className={styles.strong}>{children}</b>;
+  },
+
+  em: ({ node, children }) => {
+    return <i className={styles.em}>{children}</i>;
+  },
+
 
 
 };
