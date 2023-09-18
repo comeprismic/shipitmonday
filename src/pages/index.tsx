@@ -103,7 +103,17 @@ export async function getStaticProps({ previewData }: GetStaticPropsContext) {
   const client = createClient({ previewData });
 
   const page = await client.getSingle("homepage");
-  const entries = await client.getAllByType("page");
+  const entries = await client.getAllByType("page", { graphQuery: `{
+      page {
+        ...pageFields
+        author {
+          ...on author {
+            name
+          }
+        }
+      }
+    }`
+  });
 
   return {
     props: {

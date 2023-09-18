@@ -2,11 +2,12 @@ import React from "react";
 import { PrismicRichText } from '@prismicio/react'
 import { PrismicNextLink, PrismicNextImage  } from "@prismicio/next";
 import Link from "next/link";
+import { date } from "@prismicio/client/dist/helpers/isFilled";
 
 
 
 const BlogpostCard = (dataEntry) => {
-    console.log("my data entry", dataEntry.url)
+    console.log("my data entry - author", dataEntry.dataEntry.data.author)
     return (
         <Link href={dataEntry.dataEntry.url}> 
         <div className="blogpostCard">
@@ -20,7 +21,7 @@ const BlogpostCard = (dataEntry) => {
                     simply random text. It has roots.
                 </p>
                 <p className="author">
-                <PrismicNextLink field={dataEntry.dataEntry.data.title}><>{dataEntry.dataEntry.data.authorname}</></PrismicNextLink>
+                <PrismicNextLink field={dataEntry.dataEntry.data.title}>{dataEntry.dataEntry.data.author.data.name}</PrismicNextLink>
                 </p>
             </div>
 
