@@ -1,11 +1,14 @@
 import React from "react";
 import { PrismicRichText } from '@prismicio/react'
 import { PrismicNextLink, PrismicNextImage  } from "@prismicio/next";
+import Link from "next/link";
 
 
 
 const BlogpostCard = (dataEntry) => {
+    console.log("my data entry", dataEntry.url)
     return (
+        <Link href={dataEntry.dataEntry.url}> 
         <div className="blogpostCard">
            <PrismicNextImage field={dataEntry.dataEntry.data.image} width={598} height={412} />
             <div className="blogpostCard">
@@ -74,6 +77,7 @@ const BlogpostCard = (dataEntry) => {
 
       `}</style>
         </div>
+        </Link>
     );
 };
 

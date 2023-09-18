@@ -102,8 +102,8 @@ export async function getStaticProps({ previewData }: GetStaticPropsContext) {
    */
   const client = createClient({ previewData });
 
-  const page = await client.getByUID("page", "home");
-  const entries = await client.getAllByType("page",);
+  const page = await client.getSingle("homepage");
+  const entries = await client.getAllByType("page");
 
   return {
     props: {

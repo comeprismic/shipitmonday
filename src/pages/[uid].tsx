@@ -1,7 +1,7 @@
 import type { InferGetStaticPropsType, GetStaticPropsContext } from "next";
 import Head from "next/head";
 import * as prismic from "@prismicio/client";
-import { SliceZone } from "@prismicio/react";
+import { PrismicRichText, SliceZone } from "@prismicio/react";
 
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
@@ -21,12 +21,12 @@ export default function Index({ page }: PageProps) {
       <Head>
         <title>{prismic.asText(page.data.title)}</title>
       </Head>
-      <Header logoSrc="/logo.png" text1="still hardcoded text" text2="update it soon" />
+      <Header logoSrc="/logo.png" text1="Made with love" text2="by Prismic PM team" />
       <div className="topcontainer">
         <div className="datacontainer">
           <h3>{page.data.date}</h3>
-          <h1>House is on fire</h1>
-          <p>By <PrismicNextLink field={page.data.author}>Link</PrismicNextLink></p>
+          <h1><PrismicRichText field={page.data.title} /></h1>
+          <p>By <PrismicNextLink field={page.data.author}><>{page.data.authorname}</></PrismicNextLink></p>
         </div>
         <div className="imagecontainer">
           <PrismicNextImage className="blogimage" field={page.data.image} />
