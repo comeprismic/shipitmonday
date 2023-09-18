@@ -138,6 +138,17 @@ interface PageDocumentData {
   author: prismic.ContentRelationshipField<"author">;
 
   /**
+   * authorname field in *Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page.authorname
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  authorname: prismic.KeyTextField;
+
+  /**
    * Image field in *Page*
    *
    * - **Field Type**: Image

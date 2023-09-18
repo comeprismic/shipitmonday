@@ -28,9 +28,17 @@
           "customtypes": ["author"]
         }
       },
+      "authorname": {
+        "type": "Text",
+        "config": { "label": "authorname", "placeholder": "" }
+      },
       "image": {
         "type": "Image",
-        "config": { "label": "Image", "constraint": {}, "thumbnails": [] }
+        "config": {
+          "label": "Image",
+          "constraint": { "width": null, "height": null },
+          "thumbnails": []
+        }
       },
       "slices": {
         "type": "Slices",

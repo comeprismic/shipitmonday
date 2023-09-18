@@ -1,26 +1,23 @@
 import React from "react";
+import { PrismicRichText } from '@prismicio/react'
+import { PrismicNextLink, PrismicNextImage  } from "@prismicio/next";
 
-const BlogpostCard = () => {
+
+
+const BlogpostCard = (dataEntry) => {
     return (
         <div className="blogpostCard">
-            <img
-                alt=""
-                className="blogImage"
-                src="https://via.placeholder.com/598x412"
-            />
+           <PrismicNextImage field={dataEntry.dataEntry.data.image} width={598} height={412} />
             <div className="blogpostCard">
                 <p className="title">
-                    DRAG AND DROP iS THERE !
+              <PrismicRichText field={dataEntry.dataEntry.data.title} />
                 </p>
                 <p className="description">
                     Contrary to popular belief, Lorem Ipsum is not
                     simply random text. It has roots.
                 </p>
                 <p className="author">
-                    <strong className="authorEmphasis0">
-                        By{" "}
-                    </strong>
-                    &#64;GuyProops
+                <PrismicNextLink field={dataEntry.dataEntry.data.title}><>{dataEntry.dataEntry.data.authorname}</></PrismicNextLink>
                 </p>
             </div>
 

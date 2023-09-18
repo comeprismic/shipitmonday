@@ -5,6 +5,7 @@ import { createClient } from "@/prismicio";
 import Header from "@/components/header";
 import BlogpostCard from "@/components/blogpostcard";
 
+
 type PageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
 /**
@@ -14,13 +15,13 @@ type PageProps = InferGetStaticPropsType<typeof getStaticProps>;
  *
  * Use the SliceZone to render the content of the page.
  */
-export default function Index({ page }: PageProps) {
+export default function Index({ page, entries }: PageProps) {
   return (
     <main>
       <Head>
         <title>{prismic.asText(page.data.title)}</title>
       </Head>
-      <Header logoSrc="/logo.png" text1="This text is hardcoded" text2="todo : connect Prismic" />
+      <Header logoSrc="/logo.png" text1="Made with love" text2="by Prismic PM team" />
       <div className="topcontainer">
         <div className="datacontainer">
           <h3>Fresh news from your favorite teams </h3>
@@ -29,14 +30,9 @@ export default function Index({ page }: PageProps) {
       </div>
       <div className="cardscontainer">
         <section className="cards">
-          <BlogpostCard></BlogpostCard>
-          <BlogpostCard></BlogpostCard>
-          <BlogpostCard></BlogpostCard>
-          <BlogpostCard></BlogpostCard>
-          <BlogpostCard></BlogpostCard>
-          <BlogpostCard></BlogpostCard>
-          <BlogpostCard></BlogpostCard>
-          <BlogpostCard></BlogpostCard>
+        {entries.map((entry) => (
+        <BlogpostCard dataEntry={entry}></BlogpostCard>
+        ))}
         </section>
       </div>
 
@@ -107,10 +103,12 @@ export async function getStaticProps({ previewData }: GetStaticPropsContext) {
   const client = createClient({ previewData });
 
   const page = await client.getByUID("page", "home");
+  const entries = await client.getAllByType("page",);
 
   return {
     props: {
       page,
+      entries
     },
   };
 }
