@@ -39,6 +39,17 @@ type HomepageDocumentDataSlicesSlice = HeroSlice;
  */
 interface HomepageDocumentData {
   /**
+   * title field in *Homepage*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
    * Slice Zone field in *Homepage*
    *
    * - **Field Type**: Slice Zone

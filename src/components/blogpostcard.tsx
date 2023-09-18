@@ -6,7 +6,7 @@ import { date } from "@prismicio/client/dist/helpers/isFilled";
 
 
 
-const BlogpostCard = (dataEntry) => {
+const BlogpostCard = (dataEntry:any) => {
     console.log("my data entry - author", dataEntry.dataEntry.data.author)
     return (
         <Link href={dataEntry.dataEntry.url}> 

@@ -31,7 +31,7 @@ export default function Index({ page, entries }: PageProps) {
       <div className="cardscontainer">
         <section className="cards">
         {entries.map((entry) => (
-        <BlogpostCard dataEntry={entry}></BlogpostCard>
+        <BlogpostCard key={entry.uid} dataEntry={entry}></BlogpostCard>
         ))}
         </section>
       </div>
