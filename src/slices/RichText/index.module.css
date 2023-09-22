@@ -6,28 +6,28 @@
 
 .paragraph {
   color: #000;
-  font-family: Satoshi;
+  font-family: var(--font-satoshi);
   font-size: 32px;
   font-style: normal;
   font-weight: 500;
   line-height: 58px;
-  margin:10px 0;
+  margin: 10px 0;
 }
 
 .heading1 {
   color: #000;
-  font-family: Satoshi;
+  font-family: var(--font-satoshi);
   font-size: 72px;
   font-style: normal;
   font-weight: 900;
   line-height: 72px;
-  margin:40px 0;
+  margin: 40px 0;
 }
 
 
 .heading2 {
   color: #000;
-  font-family: Satoshi;
+  font-family: var(--font-satoshi);
   font-size: 48px;
   font-style: normal;
   font-weight: 900;
@@ -36,7 +36,7 @@
 
 .heading3 {
   color: #000;
-  font-family: Satoshi;
+  font-family: var(--font-satoshi);
   font-size: 40px;
   font-style: normal;
   font-weight: 900;
@@ -44,9 +44,9 @@
 }
 
 .strong {
-color: #000;
-font-family: 'Satoshi';
-font-weight: 900;
+  color: #000;
+  font-family: var(--font-satoshi);
+  font-weight: 900;
 
 }
 
@@ -58,16 +58,10 @@ font-weight: 900;
 
 
 .hyperlink {
-color: #4D9684;
-font-family: 'Satoshi';
-text-decoration-line: underline;
-font-weight: 700;
-text-transform: capitalize;
+  color: #4D9684;
+  font-family: 'Satoshi';
+  text-decoration-line: underline;
+  font-weight: 700;
+  text-transform: capitalize;
 
 }
-
-
-
-
-
-

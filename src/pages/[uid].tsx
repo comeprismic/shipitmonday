@@ -55,14 +55,14 @@ export default function Index({ page }: PageProps) {
 
         h3 {
           font-size:32px;
-          font-family:Satoshi;
+          font-family:var(--font-satoshi);
           color:black;
           margin-bottom:24px
         }
 
         h1 {
           font-size: 82px;
-          font-family: RationalDisplay-Bold;
+          font-family: var(--font-rationaldisplay);
           color:black;
           text-transform: uppercase;
           margin-bottom:24px

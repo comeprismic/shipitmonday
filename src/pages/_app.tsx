@@ -6,11 +6,13 @@ import localFont from 'next/font/local';
 import clsx from 'clsx';
 import '../../public/reset.css'; // Import the reset CSS file
 
-const RationalDisplay = localFont({ src: './RationalDisplay-Bold.otf' })
-const Satoshi = localFont({ src: './Satoshi-Bold.otf' })
+const RationalDisplay = localFont({ src: './RationalDisplay-Bold.otf', variable: "--font-rationaldisplay" })
+const Satoshi = localFont({ src: './Satoshi-Bold.otf', variable: "--font-satoshi" })
+const NanumPen = localFont({ src: './NanumPenScript-Regular.ttf', variable: "--font-nanumpen" })
+
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <div className={clsx(RationalDisplay.className, Satoshi.className)}>
+    <div className={clsx(RationalDisplay.variable, Satoshi.variable, NanumPen.variable, Satoshi.className)}>
       <Component {...pageProps} />
       <PrismicPreview repositoryName={repositoryName} />
     </div>

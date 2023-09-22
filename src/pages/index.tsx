@@ -30,9 +30,9 @@ export default function Index({ page, entries }: PageProps) {
       </div>
       <div className="cardscontainer">
         <section className="cards">
-        {entries.map((entry) => (
-        <BlogpostCard key={entry.uid} dataEntry={entry}></BlogpostCard>
-        ))}
+          {entries.map((entry) => (
+            <BlogpostCard key={entry.uid} dataEntry={entry}></BlogpostCard>
+          ))}
         </section>
       </div>
 
@@ -57,7 +57,7 @@ export default function Index({ page, entries }: PageProps) {
         h3 {
           color: #000;
           text-align: center;
-          font-family: Rational Display;
+          font-family: var(--font-satoshi);
           font-size: 33px;
           font-style: normal;
           font-weight: 700;
@@ -68,7 +68,7 @@ export default function Index({ page, entries }: PageProps) {
         h1 {
           Copy
           color: #000;
-          font-family: Rational Display;
+          font-family: var(--font-rationaldisplay);
           font-size: 112px;
           font-style: normal;
           font-weight: 700;
@@ -103,7 +103,8 @@ export async function getStaticProps({ previewData }: GetStaticPropsContext) {
   const client = createClient({ previewData });
 
   const page = await client.getSingle("homepage");
-  const entries = await client.getAllByType("page", { graphQuery: `{
+  const entries = await client.getAllByType("page", {
+    graphQuery: `{
       page {
         ...pageFields
         author {

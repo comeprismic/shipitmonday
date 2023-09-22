@@ -3,23 +3,23 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 interface HeaderProps {
-    logoSrc: string;
-    text1: string;
-    text2: string;
+  logoSrc: string;
+  text1: string;
+  text2: string;
 }
 
 const Header: React.FC<HeaderProps> = ({ logoSrc, text1, text2 }) => {
-    return (
-        <header>
-            <div className="headercontainer">
-                <p className="headertext"> {text1}</p>
-                <div className="logo">
-                    <Image src={logoSrc} alt='logo' fill />
-                </div>
-                <p className="headertext">{text2}</p>
-            </div>
+  return (
+    <header>
+      <div className="headercontainer">
+        <p className="headertext"> {text1}</p>
+        <div className="logo">
+          <Image src={logoSrc} alt='logo' fill />
+        </div>
+        <p className="headertext">{text2}</p>
+      </div>
 
-            <style jsx>{`
+      <style jsx>{`
         
         header {
           display: flex;
@@ -45,7 +45,7 @@ const Header: React.FC<HeaderProps> = ({ logoSrc, text1, text2 }) => {
 
         .headertext {
             color: black;
-            font-family: nanum pen;
+            font-family: var(--font-nanumpen);
             font-size: 24px;
             position: relative;
 
@@ -53,8 +53,8 @@ const Header: React.FC<HeaderProps> = ({ logoSrc, text1, text2 }) => {
 
         }
       `}</style>
-        </header>
-    );
+    </header>
+  );
 };
 
 export default Header;
