@@ -9,6 +9,7 @@ import { date } from "@prismicio/client/dist/helpers/isFilled";
 const BlogpostCard = (dataEntry:any) => {
     console.log("my data entry - author", dataEntry.dataEntry.data.author)
     return (
+      <Link href={dataEntry.dataEntry.url}>
         <div className="blogpostCard">
            <PrismicNextImage field={dataEntry.dataEntry.data.image} width={598} height={412} />
             <div className="blogpostCard">
@@ -77,6 +78,7 @@ const BlogpostCard = (dataEntry:any) => {
 
       `}</style>
         </div>
+        </Link>
 
     );
 };
