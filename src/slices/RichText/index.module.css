@@ -24,6 +24,14 @@
   margin: 40px 0;
 }
 
+.hyperlink {
+  color: #4D9684;
+  font-family: var(--font-satoshi);
+  text-decoration-line: underline;
+  font-weight: 700;
+  text-transform: capitalize;
+
+}
 
 .heading2 {
   color: #000;
