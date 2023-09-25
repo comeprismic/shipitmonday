@@ -6,24 +6,23 @@ import { date } from "@prismicio/client/dist/helpers/isFilled";
 
 
 
-const BlogpostCard = (dataEntry: any) => {
-  console.log("my data entry - author", dataEntry.dataEntry.data.author)
-  return (
-    <Link href={dataEntry.dataEntry.url}>
-      <div className="blogpostCard">
-        <PrismicNextImage field={dataEntry.dataEntry.data.image} width={598} height={412} />
+const BlogpostCard = (dataEntry:any) => {
+    console.log("my data entry - author", dataEntry.dataEntry.data.author)
+    return (
         <div className="blogpostCard">
-          <p className="title">
-            <PrismicRichText field={dataEntry.dataEntry.data.title} />
-          </p>
-          <p className="description">
-            Contrary to popular belief, Lorem Ipsum is not
-            simply random text. It has roots.
-          </p>
-          <p className="author">
-            <PrismicNextLink field={dataEntry.dataEntry.data.title}>{dataEntry.dataEntry.data.author.data.name}</PrismicNextLink>
-          </p>
-        </div>
+           <PrismicNextImage field={dataEntry.dataEntry.data.image} width={598} height={412} />
+            <div className="blogpostCard">
+                <p className="title">
+              <PrismicRichText field={dataEntry.dataEntry.data.title} />
+                </p>
+                <p className="description">
+                    Contrary to popular belief, Lorem Ipsum is not
+                    simply random text. It has roots.
+                </p>
+                <p className="author">
+                <PrismicNextLink field={dataEntry.dataEntry.data.title}>{dataEntry.dataEntry.data.author.data.name}</PrismicNextLink>
+                </p>
+            </div>
 
         <style jsx>{`
 
@@ -77,9 +76,9 @@ const BlogpostCard = (dataEntry: any) => {
         }
 
       `}</style>
-      </div>
-    </Link>
-  );
+        </div>
+
+    );
 };
 
 export default BlogpostCard;

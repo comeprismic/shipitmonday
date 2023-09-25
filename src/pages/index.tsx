@@ -4,6 +4,7 @@ import * as prismic from "@prismicio/client";
 import { createClient } from "@/prismicio";
 import Header from "@/components/header";
 import BlogpostCard from "@/components/blogpostcard";
+import Link from "next/link";
 
 
 type PageProps = InferGetStaticPropsType<typeof getStaticProps>;
