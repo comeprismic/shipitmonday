@@ -36,16 +36,21 @@ const components: JSXMapSerializer = {
     return (<a className={styles.hyperlink} href={url} target={target}>{children}</a>)
   },
 
-  strong: ({ node, children }) => {
-    return <b className={styles.strong}>{children}</b>;
+  strong: ({ children }) => {
+    return <p className={styles.strong}>{children}</p>;
   },
 
-  em: ({ node, children }) => {
-    return <i className={styles.em}>{children}</i>;
+  em: ({ children }) => {
+    return <p className={styles.em}>{children}</p>;
   },
 
-
-
+  listItem: ({ children }) => {
+    return <li className={styles.listItem}>{children}</li>;
+  },
+  
+  list: ({ children }) => {
+    return <ul className={styles.list}>{children}</ul>;
+  },
 };
 
 type RichTextProps = SliceComponentProps<Content.RichTextSlice>;
