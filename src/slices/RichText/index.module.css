@@ -80,20 +80,24 @@
 
 }
 
-/* listItem {
+.listItem {
   color: #000000;
   font-family: var(--font-satoshi);
   font-weight: 700;
+  font-size: 32px;
+  list-style: outside;
   line-height: 50px;
-  margin-bottom: 40px;
+  margin: 40px;
 
 }
 
-list {
+.list {
   color: #000000;
   font-family: var(--font-satoshi);
+  font-size: 32px;
   font-weight: 700;
+  list-style: outside;
   line-height: 50px;
-  margin-bottom: 40px;
+  margin: auto;
 
-*/
+}
