@@ -10,8 +10,8 @@
   font-size: 32px;
   font-style: normal;
   font-weight: 500;
-  line-height: 58px;
-  margin: 10px 0;
+  line-height: 50px;
+  margin-bottom: 40px;
 }
 
 .heading1 {
@@ -19,19 +19,29 @@
   font-family: var(--font-satoshi);
   font-size: 72px;
   font-style: normal;
-  font-weight: 900;
+  font-weight: 700;
   line-height: 72px;
-  margin: 40px 0;
+  margin-bottom: 50px;
+  margin-top: 50px;
 }
 
+.hyperlink {
+  color: #4D9684;
+  font-family: var(--font-satoshi);
+  text-decoration-line: underline;
+  font-weight: 700;
+  text-transform: capitalize;
+
+}
 
 .heading2 {
   color: #000;
   font-family: var(--font-satoshi);
   font-size: 48px;
   font-style: normal;
-  font-weight: 900;
-  line-height: 48px;
+  font-weight: 700;
+  line-height: 50px;
+  margin-bottom: 40px;
 }
 
 .heading3 {
@@ -39,20 +49,24 @@
   font-family: var(--font-satoshi);
   font-size: 40px;
   font-style: normal;
-  font-weight: 900;
-  line-height: 40px;
+  font-weight: 700;
+  line-height: 50px;
+  margin-bottom: 40px;
+
 }
 
 .strong {
   color: #000;
   font-family: var(--font-satoshi);
   font-weight: 900;
-
+  line-height: 50px;
 }
 
 .em {
   color: #000;
   font-style: italic;
+  line-height: 50px;
+  margin-bottom: 40px;
 
 }
 
@@ -63,5 +77,27 @@
   text-decoration-line: underline;
   font-weight: 700;
   text-transform: capitalize;
+
+}
+
+.listItem {
+  color: #000000;
+  font-family: var(--font-satoshi);
+  font-weight: 700;
+  font-size: 32px;
+  list-style: outside;
+  line-height: 50px;
+  margin: 40px;
+
+}
+
+.list {
+  color: #000000;
+  font-family: var(--font-satoshi);
+  font-size: 32px;
+  font-weight: 700;
+  list-style: outside;
+  line-height: 50px;
+  margin: auto;
 
 }

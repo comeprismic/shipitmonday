@@ -5,16 +5,14 @@ import Link from "next/link";
 import { date } from "@prismicio/client/dist/helpers/isFilled";
 
 
-
-const BlogpostCard = (dataEntry: any) => {
+const BlogpostCard = (dataEntry:any) => {
   console.log("my data entry - author", dataEntry.dataEntry.data.author)
   return (
     <Link href={dataEntry.dataEntry.url}>
       <div className="blogpostCard">
-        <PrismicNextImage field={dataEntry.dataEntry.data.image} width={598} height={412} />
-        <div className="blogpostCard">
+      <PrismicNextImage field={dataEntry.dataEntry.data.image} width={598} height={412} />
           <p className="title">
-            <PrismicRichText field={dataEntry.dataEntry.data.title} />
+          <Link href={dataEntry.dataEntry.url}><PrismicRichText field={dataEntry.dataEntry.data.title} /></Link>
           </p>
           <p className="description">
             Contrary to popular belief, Lorem Ipsum is not
@@ -23,14 +21,20 @@ const BlogpostCard = (dataEntry: any) => {
           <p className="author">
             <PrismicNextLink field={dataEntry.dataEntry.data.title}>{dataEntry.dataEntry.data.author.data.name}</PrismicNextLink>
           </p>
+          
         </div>
+      
 
         <style jsx>{`
+        .a {
+          text-decoration: none; 
+        }
 
         .blogpostCard {
           display: flex;
           flex-direction: column;
           align-items: flex-start;
+          
         }
         .blogImage {
           width: auto;
@@ -77,7 +81,6 @@ const BlogpostCard = (dataEntry: any) => {
         }
 
       `}</style>
-      </div>
     </Link>
   );
 };

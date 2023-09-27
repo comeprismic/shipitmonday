@@ -29,7 +29,7 @@ export default function Index({ page }: PageProps) {
           <p>By <PrismicNextLink field={page.data.author}><>{page.data.authorname}</></PrismicNextLink></p>
         </div>
         <div className="imagecontainer">
-          <PrismicNextImage className="blogimage" field={page.data.image} />
+          <PrismicNextImage className="blogimage" field={page.data.image} width={1337} height={688} />
         </div>
       </div>
 
