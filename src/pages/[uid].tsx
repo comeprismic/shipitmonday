@@ -29,13 +29,14 @@ export default function Index({ page }: PageProps) {
           <p>By <PrismicNextLink field={page.data.author}><>{page.data.authorname}</></PrismicNextLink></p>
         </div>
         <div className="imagecontainer">
-          <PrismicNextImage className="blogimage" field={page.data.image} width={1337} height={688} />
+          <div className="blogimage">
+          <PrismicNextImage field={page.data.image} />
+          </div>
         </div>
       </div>
 
       <SliceZone slices={page.data.slices} components={components} />
       <style jsx>{`
-        
         
         .topcontainer {
           display: flex;
@@ -53,20 +54,38 @@ export default function Index({ page }: PageProps) {
           margin-bottom: 72px;
         }
         
-        .imagecontainer {
-          border-radius: 4px;
-          border: 4px solid #000;
-        }
-        
         h3 {
           font-size: 24px; /* Reduced size for mobile */
+          font-family: var(--font-satoshi);
+          color: black;
           margin-bottom: 16px;
         }
         
         h1 {
-          font-size: 48px; /* Reduced size for mobile */
+          font-size: calc(24px + 2vw); /* Dynamic font size based on viewport width */
+          font-family: var(--font-rationaldisplay);
+          color: black;
+          text-transform: uppercase;
           margin-bottom: 16px;
         }
+        
+        .imagecontainer {
+          width: 90%;
+          max-width: 1337px;
+          border-radius: 4px;
+          border: 4px solid #000;
+          overflow: hidden; /* This will ensure the image is contained within the border */
+        }
+        
+        .blogimage {
+          display: block; /* Block will ensure it takes the full width of the parent */
+          max-width: 100%; /* This will ensure the image doesn't grow beyond its container */
+          height: auto; /* This will maintain the image's aspect ratio */
+          border-color: black;
+          border: 4px;
+          border-radius: 16px;
+        }
+        
         
         /* For screens larger than 768px */
         @media (min-width: 768px) {
@@ -76,34 +95,13 @@ export default function Index({ page }: PageProps) {
           }
         
           h1 {
-            font-size: 82px;
+            font-size: 82px; /* Original size */
             margin-bottom: 24px;
           }
         }
         
-
-        h3 {
-          font-size:32px;
-          font-family:var(--font-satoshi);
-          color:black;
-          margin-bottom:24px
-        }
-
-        h1 {
-          font-size: 82px;
-          font-family: var(--font-rationaldisplay);
-          color:black;
-          text-transform: uppercase;
-          margin-bottom:24px
-        }
-
         
         
-        .blogimage {
-          border-color:black;
-          border:4px;
-          border-radius:16px;
-        }
       `}</style>
 
 
