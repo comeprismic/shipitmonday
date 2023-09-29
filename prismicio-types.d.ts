@@ -116,15 +116,15 @@ type PageDocumentDataSlicesSlice = RichTextSlice;
  */
 interface PageDocumentData {
   /**
-   * timetest field in *Page*
+   * date field in *Page*
    *
-   * - **Field Type**: Timestamp
+   * - **Field Type**: Date
    * - **Placeholder**: *None*
-   * - **API ID Path**: page.timetest
+   * - **API ID Path**: page.date
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#timestamp
+   * - **Documentation**: https://prismic.io/docs/field#date
    */
-  timetest: prismic.TimestampField;
+  date: prismic.DateField;
 
   /**
    * Title field in *Page*
@@ -313,11 +313,9 @@ declare module "@prismicio/client" {
       PageDocumentDataSlicesSlice,
       AllDocumentTypes,
       HeroSlice,
-      HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
       RichTextSlice,
-      RichTextSliceDefaultPrimary,
       RichTextSliceVariation,
       RichTextSliceDefault,
     };
