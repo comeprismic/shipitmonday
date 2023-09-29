@@ -24,7 +24,7 @@ export default function Index({ page }: PageProps) {
       <Header logoSrc="/logo.png" text1="Made with love" text2="by Prismic PM team" />
       <div className="topcontainer">
         <div className="datacontainer">
-          <h3>{page.data.date}</h3>
+          <h3>{page.data.timetest}</h3>
           <h1><PrismicRichText field={page.data.title} /></h1>
           <p>By <PrismicNextLink field={page.data.author}><>{page.data.authorname}</></PrismicNextLink></p>
         </div>

@@ -116,15 +116,15 @@ type PageDocumentDataSlicesSlice = RichTextSlice;
  */
 interface PageDocumentData {
   /**
-   * Date field in *Page*
+   * timetest field in *Page*
    *
-   * - **Field Type**: Date
+   * - **Field Type**: Timestamp
    * - **Placeholder**: *None*
-   * - **API ID Path**: page.date
+   * - **API ID Path**: page.timetest
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#date
+   * - **Documentation**: https://prismic.io/docs/field#timestamp
    */
-  date: prismic.DateField;
+  timetest: prismic.TimestampField;
 
   /**
    * Title field in *Page*

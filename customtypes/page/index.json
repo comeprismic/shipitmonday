@@ -6,19 +6,10 @@
   "status": true,
   "json": {
     "Main": {
-      "uid": {
-        "type": "UID",
-        "config": {
-          "label": "UID",
-          "placeholder": ""
-        }
-      },
+      "uid": { "type": "UID", "config": { "label": "UID", "placeholder": "" } },
       "date": {
         "type": "Date",
-        "config": {
-          "label": "Date",
-          "placeholder": ""
-        }
+        "config": { "label": "Date", "placeholder": "" }
       },
       "title": {
         "type": "StructuredText",
