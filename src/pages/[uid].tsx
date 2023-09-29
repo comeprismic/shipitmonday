@@ -39,20 +39,25 @@ export default function Index({ page }: PageProps) {
         
         .topcontainer {
           display: flex;
-          flex-direction:column;
+          flex-direction: column;
           align-items: center;
           padding-top: 48px;
-          margin-bottom:96px
+          margin-bottom: 96px;
         }
-       
+        
         .datacontainer {
           display: flex;
-          flex-direction:column;
+          flex-direction: column;
           align-items: center;
           padding-top: 48px;
-          margin-bottom:72px
+          margin-bottom: 72px;
         }
-
+        
+        .imagecontainer {
+          border-radius: 4px;
+          border: 4px solid #000;
+        }
+        
         h3 {
           font-size:32px;
           font-family:var(--font-satoshi);
@@ -68,10 +73,6 @@ export default function Index({ page }: PageProps) {
           margin-bottom:24px
         }
 
-        .imagecontainer {
-          border-radius: 4px;
-          border: 4px solid #000;
-        }
         
         
         .blogimage {
