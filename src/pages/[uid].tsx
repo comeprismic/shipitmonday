@@ -59,6 +59,30 @@ export default function Index({ page }: PageProps) {
         }
         
         h3 {
+          font-size: 24px; /* Reduced size for mobile */
+          margin-bottom: 16px;
+        }
+        
+        h1 {
+          font-size: 48px; /* Reduced size for mobile */
+          margin-bottom: 16px;
+        }
+        
+        /* For screens larger than 768px */
+        @media (min-width: 768px) {
+          h3 {
+            font-size: 32px;
+            margin-bottom: 24px;
+          }
+        
+          h1 {
+            font-size: 82px;
+            margin-bottom: 24px;
+          }
+        }
+        
+
+        h3 {
           font-size:32px;
           font-family:var(--font-satoshi);
           color:black;
