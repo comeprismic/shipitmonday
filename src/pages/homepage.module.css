@@ -1,0 +1,41 @@
+/* HomePageStyles.module.css */
+.datacontainer {
+    width: 100%;
+    max-width: 1280px;
+    margin: 40px auto;
+    text-align: center;
+    font-size: 20px; /* Adjusted for better readability and responsiveness */
+    text-transform: uppercase;
+    font-family: var(--font-satoshi);
+  }
+  
+  .datacontainer strong {
+    display: block;
+    font-family: var(--font-rationaldisplay);
+    font-size: 40px; /* Adjusted for better readability and responsiveness */
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+  }
+  
+  .cardscontainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: -20px;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  
+  /* Make adjustments for larger screens */
+  @media (min-width: 768px) {
+    .datacontainer {
+      font-size: 33px;
+    }
+  
+    .datacontainer strong {
+      font-size: 90px;
+    }
+  }
+  

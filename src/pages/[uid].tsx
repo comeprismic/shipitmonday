@@ -1,20 +1,21 @@
+// Import statements
 import type { InferGetStaticPropsType, GetStaticPropsContext } from "next";
 import Head from "next/head";
 import * as prismic from "@prismicio/client";
 import { PrismicRichText, SliceZone } from "@prismicio/react";
-
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
 import Header from "@/components/header";
 import { PrismicNextImage } from '@prismicio/next';
-import { PrismicNextLink } from '@prismicio/next'
+import { PrismicNextLink } from '@prismicio/next';
+
+// Import CSS module
+import styles from './blogPost.module.css';
 
 type PageProps = InferGetStaticPropsType<typeof getStaticProps>;
 type PageParams = { uid: string };
 
-/**
- * This page renders a Prismic Document dynamically based on the URL.
- */
+// Main component
 export default function Index({ page }: PageProps) {
   return (
     <main>
@@ -22,95 +23,22 @@ export default function Index({ page }: PageProps) {
         <title>{prismic.asText(page.data.title)}</title>
       </Head>
       <Header logoSrc="/logo.png" text1="Made with love" text2="by Prismic PM team" />
-      <div className="topcontainer">
-        <div className="datacontainer">
-          <h3>{page.data.date}</h3>
-          <h1><PrismicRichText field={page.data.title} /></h1>
+      <div className={styles.topcontainer}>
+        <div className={styles.datacontainer}>
+          <h1 className={styles.h1} ><PrismicRichText field={page.data.title} /></h1>
           <p>By <PrismicNextLink field={page.data.author}><>{page.data.authorname}</></PrismicNextLink></p>
         </div>
-        <div className="imagecontainer">
-          <div className="blogimage">
-          <PrismicNextImage field={page.data.image} />
-          </div>
+        <div className={styles.imagecontainer}>
+          <PrismicNextImage field={page.data.image} className={styles.image}/>
         </div>
       </div>
 
       <SliceZone slices={page.data.slices} components={components} />
-      <style jsx>{`
-        
-        .topcontainer {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          padding-top: 48px;
-          margin-bottom: 96px;
-        }
-        
-        .datacontainer {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          padding-top: 48px;
-          margin-bottom: 72px;
-        }
-        
-        h3 {
-          font-size: 24px; /* Reduced size for mobile */
-          font-family: var(--font-satoshi);
-          color: black;
-          margin-bottom: 16px;
-        }
-        
-        h1 {
-          font-size: calc(24px + 2vw); /* Dynamic font size based on viewport width */
-          font-family: var(--font-rationaldisplay);
-          color: black;
-          text-transform: uppercase;
-          margin-bottom: 16px;
-        }
-        
-        .imagecontainer {
-          width: 90%;
-          max-width: 1337px;
-          border-radius: 4px;
-          border: 4px solid #000;
-          overflow: hidden; /* This will ensure the image is contained within the border */
-        }
-        
-        .blogimage {
-          display: block; /* Block will ensure it takes the full width of the parent */
-          max-width: 100%; /* This will ensure the image doesn't grow beyond its container */
-          height: auto; /* This will maintain the image's aspect ratio */
-          border-color: black;
-          border: 4px;
-          border-radius: 16px;
-        }
-        
-        
-        /* For screens larger than 768px */
-        @media (min-width: 768px) {
-          h3 {
-            font-size: 32px;
-            margin-bottom: 24px;
-          }
-        
-          h1 {
-            font-size: 82px; /* Original size */
-            margin-bottom: 24px;
-          }
-        }
-        
-        
-        
-      `}</style>
-
-
-    </main >
-
-
+    </main>
   );
 }
 
+// Get static props function
 export async function getStaticProps({
   params,
   previewData,
@@ -134,19 +62,14 @@ export async function getStaticProps({
   };
 }
 
+// Get static paths function
 export async function getStaticPaths() {
   const client = createClient();
 
-  /**
-   * Query all Documents from the API, except the homepage.
-   */
   const pages = await client.getAllByType("page", {
     predicates: [prismic.filter.not("my.page.uid", "home")],
   });
 
-  /**
-   * Define a path for every Document.
-   */
   return {
     paths: pages.map((page) => {
       return prismic.asLink(page);

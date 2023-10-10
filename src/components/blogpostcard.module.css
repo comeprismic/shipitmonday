@@ -1,0 +1,51 @@
+.linkCard{
+    display: block;
+    width: 100%;
+}
+
+.blogpostCard {
+    box-sizing: border-box;
+    flex: 1 1 100%; /* By default, on mobile, cards take full width */
+    margin: 20px;
+  }
+
+  @media (min-width: 768px) {
+    .blogpostCard {
+      flex: 1 1 calc(50% - 40px); /* Cards take half of the container width minus the margin */
+      margin: 20px;
+    }
+  }
+
+.blogImage {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-bottom: 24px;
+    border: 4px solid black;
+    border-radius: 4px;
+}
+
+.title {
+    color: #000;
+    font-family: var(--font-rationaldisplay);
+    font-size: 3em;
+    font-weight: 700;
+    margin-bottom: 16px;
+    align-self: stretch;
+}
+
+.description {
+    color: #000;
+    font-family: var(--font-satoshi);
+    font-size: 1.5em;
+    font-weight: 500;
+    line-height: 1.5em;
+    margin-bottom: 16px;
+}
+
+.author {
+    font-family: var(--font-satoshi);
+    font-size: 1.3em;
+    font-weight: 300;
+    color: rgba(77, 150, 132, 1);
+}
