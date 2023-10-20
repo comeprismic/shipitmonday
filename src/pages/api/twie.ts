@@ -7,7 +7,7 @@ import OpenAI from "openai";
 import { PageDocument } from '../../../prismicio-types';
 import 'dotenv/config'
 
-console.log('process.env.OpenAI', process.env.OpenAI)
+console.log('process.env.OpenAI', process.env.OpenAIapiKey)
 const openai = new OpenAI({
   apiKey: process.env.OpenAIapiKey,
 });
