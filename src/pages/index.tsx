@@ -39,6 +39,10 @@ export async function getStaticProps({ previewData }: GetStaticPropsContext) {
   const client = createClient({ previewData });
   const page = await client.getSingle("homepage");
   const entries = await client.getAllByType("page", {
+    orderings: {
+      field: 'document.first_publication_date',
+      direction: 'desc',
+    },
     graphQuery: `{
       page {
         ...pageFields
