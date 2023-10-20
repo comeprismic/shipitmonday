@@ -32,9 +32,9 @@ async function getPrismicDocument(documentId:string) {
   documentId = "ZSacwRAAAPsmZnlt";
   const client = createClient();
   const documentPublished:PageDocument = await client.getByID(documentId);
+  console.log("Document gotten", documentPublished);
   const summary:any = await getGPT3Summary(documentPublished.data,documentPublished.url);
-
-
+  console.log("Summary gotten", summary.content);
   await sendToSlack(summary.content);
   return documentPublished;
 }
@@ -43,6 +43,7 @@ async function getGPT3Summary(content:object, url:string | null) {
   //const gpt3Endpoint = 'https://api.openai.com/v1/engines/text-davinci-003/completions';
   const prompt = `At the beginning of your message name who wrote wrote the post and the team that they are part of (Something like, John from the Growth Team just released a new update), and then Summarize what will be done next week based on that Prismic Document "${JSON.stringify(content)}" structure the main next action point for the week as bullet list, and then provide a link of the relevant page on the shipitmonday.vercel.app${url} website thanks to the url of the content`;
   
+  console.log("Entering GPT3 Summary with content", content)
   const response = await openai.chat.completions.create({
     model: "gpt-3.5-turbo",
     messages: [
