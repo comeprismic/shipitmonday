@@ -4,15 +4,16 @@ import * as prismic from "@prismicio/client";
 import { createClient } from "@/prismicio";
 // This code is for v4 of the openai package: npmjs.com/package/openai
 import OpenAI from "openai";
+import { PageDocument } from '../../../prismicio-types';
 const openai = new OpenAI({
   apiKey: process.env.OpenAIapiKey,
 });
-export default async (req, res) => {
+export default async (req:any, res:any) => {
   if (req.method === 'GET') {
     // Extract document ID from Prismic's webhook payload
     const documentId = req.body.id;
     // Fetch the document from Prismic (assuming you have the document ID)
-    const prismicDocument = await getPrismicDocument(documentId);
+   getPrismicDocument(documentId);
     
     // Get the document content and send it to GPT-3 for summarization
    // const summary = await getGPT3Summary(documentContent);
@@ -23,19 +24,22 @@ export default async (req, res) => {
     res.status(405).send('Method not allowed');
   }
 };
-async function getPrismicDocument(documentId) {
+async function getPrismicDocument(documentId:string) {
   // Implement a function to fetch document from Prismic using the document ID
   console.log("GET PRISMIC DOCS");
   documentId = "ZSacwRAAAPsmZnlt";
   const client = createClient();
-  const documentPublished = await client.getByID(documentId);
+  const documentPublished:PageDocument = await client.getByID(documentId);
   console.log("doc",documentPublished.data)
   console.log("url", documentPublished.url);
-  const summary = await getGPT3Summary(documentPublished.data,documentPublished.url);
-  await sendToSlack(summary);
+  const summary:any = await getGPT3Summary(documentPublished.data,documentPublished.url);
+
+
+  console.log("summary type", summary)
+  await sendToSlack(summary.content);
   return documentPublished;
 }
-async function getGPT3Summary(content, url) {
+async function getGPT3Summary(content:object, url:string | null) {
   console.log("Enter GPT Function", content);
   // Implement a function to get the summary of the content from GPT-3
   //const gpt3Endpoint = 'https://api.openai.com/v1/engines/text-davinci-003/completions';
@@ -60,11 +64,11 @@ async function getGPT3Summary(content, url) {
   console.log("summary", response.choices[0].message);
   return response.choices[0].message;
 }
-async function sendToSlack(summary) {
+async function sendToSlack(summary:string) {
   console.log("send to slack");
   // Implement a function to send the summary to Slack
   const slackWebhookUrl = process.env.slackWebhookUrl;
   await axios.post(slackWebhookUrl, {
-    text: `${summary.content}`
+    text: `${summary}`
   });
 }
