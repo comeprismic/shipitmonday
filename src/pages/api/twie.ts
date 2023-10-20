@@ -5,6 +5,9 @@ import { createClient } from "@/prismicio";
 // This code is for v4 of the openai package: npmjs.com/package/openai
 import OpenAI from "openai";
 import { PageDocument } from '../../../prismicio-types';
+import 'dotenv/config'
+
+console.log('process.env.OpenAI', process.env.OpenAI)
 const openai = new OpenAI({
   apiKey: process.env.OpenAIapiKey,
 });
@@ -59,6 +62,7 @@ async function getGPT3Summary(content:object, url:string | null) {
 async function sendToSlack(summary:string) {
   // Implement a function to send the summary to Slack
   const slackWebhookUrl:any = process.env.slackWebhookUrl;
+  console.log('process.env.slackWebhookUrl', slackWebhookUrl);
   await axios.post(slackWebhookUrl, {
     text: `${summary}`
   });
