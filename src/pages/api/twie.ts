@@ -17,6 +17,7 @@ export default async (req:any, res:any) => {
     const documentId:string = req.body.id;
    // Fetch the document from Prismic (assuming you have the document ID)
   const documentContent:PageDocument = await getPrismicDocument(documentId);
+
   console.log("documentContent", documentContent);
   // Get the document content and send it to GPT-3 for summarization
   const summary:any = await getGPT3Summary(documentContent, documentContent.url);
@@ -29,7 +30,7 @@ export default async (req:any, res:any) => {
 };
 async function getPrismicDocument(documentId:string) {
   // Implement a function to fetch document from Prismic using the document ID
-  documentId = "ZSacwRAAAPsmZnlt";
+  //documentId = "ZSacwRAAAPsmZnlt";
   const client = createClient();
   const documentPublished:PageDocument = await client.getByID(documentId);
   return documentPublished;
