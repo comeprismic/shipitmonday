@@ -67,7 +67,7 @@ async function getGPT3Summary(content:object, url:string | null) {
 async function sendToSlack(summary:string) {
   console.log("send to slack");
   // Implement a function to send the summary to Slack
-  const slackWebhookUrl = process.env.slackWebhookUrl;
+  const slackWebhookUrl:any = process.env.slackWebhookUrl;
   await axios.post(slackWebhookUrl, {
     text: `${summary}`
   });
