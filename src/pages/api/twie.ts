@@ -12,7 +12,7 @@ const openai = new OpenAI({
   apiKey: process.env.OpenAIapiKey,
 });
 export default async (req:any, res:any) => {
-  if (req.method === 'GET') {
+  if (req.method === 'POST') {
     // Extract document ID from Prismic's webhook payload
     const documentId:string = req.body.id;
    // Fetch the document from Prismic (assuming you have the document ID)
