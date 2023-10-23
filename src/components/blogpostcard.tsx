@@ -17,8 +17,7 @@ const BlogpostCard = (dataEntry: any) => {
           <PrismicRichText field={dataEntry.dataEntry.data.title} />
         </p>
         <p className={styles.description}>
-          Contrary to popular belief, Lorem Ipsum is not
-          simply random text. It has roots.
+          <PrismicRichText field={dataEntry.dataEntry.data.description} />
         </p>
         <p className={styles.author}>
           <PrismicNextLink field={dataEntry.dataEntry.data.title}>{dataEntry.dataEntry.data.author.data.name}</PrismicNextLink>
