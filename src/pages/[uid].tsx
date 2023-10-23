@@ -28,7 +28,6 @@ export default function Index({ page }: PageProps) {
           <h1 className={styles.h1} ><PrismicRichText field={page.data.title} /></h1>
           <p>By <PrismicNextLink field={page.data.author}><>{page.data.authorname}</></PrismicNextLink></p>
         </div>
-        <PrismicRichText field={page.data.description} />
         <div className={styles.imagecontainer}>
           <PrismicNextImage field={page.data.image} className={styles.image}/>
         </div>
