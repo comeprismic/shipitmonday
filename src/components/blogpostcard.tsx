@@ -16,11 +16,11 @@ const BlogpostCard = (dataEntry: any) => {
         <p className={styles.title}>
           <PrismicRichText field={dataEntry.dataEntry.data.title} />
         </p>
-        <p className={styles.description}>
-          <PrismicRichText field={dataEntry.dataEntry.data.description} />
-        </p>
         <p className={styles.author}>
           <PrismicNextLink field={dataEntry.dataEntry.data.title}>{dataEntry.dataEntry.data.author.data.name}</PrismicNextLink>
+        </p>
+        <p className={styles.description}>
+          <PrismicRichText field={dataEntry.dataEntry.data.description} />
         </p>
         </Link>
       </div>
