@@ -46,7 +46,7 @@ async function getPrismicDocument(documentId:string) {
 }
 async function getGPT3Summary(content:object, url:string | null) {
   // Implement a function to get the summary of the content from GPT-3
-  const prompt = `At the beginning of your message name who wrote wrote the post and the team that they are part of (Something like, John from the Growth Team just released a new update) if you don't know the team please ignore the team, and then Summarize in maximum 450 characters what will be done next week based on that Prismic Document "${JSON.stringify(content)}". Structure the main next action point for the week as bullet list. Then break the line and Finish the message by : You can learn more at the shipitmonday.vercel.app${url}`;
+  const prompt = `At the beginning of your message name who wrote wrote the post and the team that they are part of (Something like, John just released a new update) if you don't know the team please ignore the team, and then Summarize in maximum 450 characters what will be done next week based on that Prismic Document "${JSON.stringify(content)}". Structure the main next action point for the week as bullet list. Then break the line and Finish the message by : You can learn more at the shipitmonday.vercel.app${url}`;
   
   //console.log("Entering GPT3 Summary with content", content)
   const response = await openai.chat.completions.create({
